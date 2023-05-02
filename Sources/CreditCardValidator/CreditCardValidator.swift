@@ -16,7 +16,7 @@ public enum CreditCardType: String {
         case .amex:
             return IndexSet(integer: 15)
         case .dinersClub:
-            return IndexSet(integersIn: 14...19)
+            return IndexSet(integer: 14)
         case .visa, .jcb, .discover, .unionPay:
             return IndexSet(integersIn: 16...19)
         default:
