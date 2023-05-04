@@ -4,10 +4,10 @@ public enum CreditCardType: String {
     case amex = "^3[47][0-9]*$"
     case visa = "^4[0-9]*$"
     case masterCard = "^(?:5[1-5]|222[1-9]|22[3-9]|2[3-6]|27[01][0-9]|2720)[0-9]*$"
-    case dinersClub = "^3(?:[0689]|[68])[0-9]*$"
+    case dinersClub = "^3[0689][0-9]*$"
     case jcb = "^35(?:2[8-9]|[3-8])[0-9]*$"
     case discover = "^6(?:011|4[4-9]|5)[0-9]*$"
-    case unionPay = "^62[0-9]*$"
+    case unionPay = "^62(?:2|[4-6]|8)[0-9]*$"
 
     /// Possible C/C number lengths for each C/C type
     /// reference: https://en.wikipedia.org/wiki/Payment_card_number
@@ -16,7 +16,7 @@ public enum CreditCardType: String {
         case .amex:
             return IndexSet(integer: 15)
         case .dinersClub:
-            return IndexSet(integer: 14)
+            return IndexSet(integersIn: 14...19)
         case .visa, .jcb, .discover, .unionPay:
             return IndexSet(integersIn: 16...19)
         default:
